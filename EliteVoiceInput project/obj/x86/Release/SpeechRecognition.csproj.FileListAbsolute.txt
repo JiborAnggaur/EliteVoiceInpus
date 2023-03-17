@@ -1,0 +1,50 @@
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\bin\Release\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\bin\Release\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.csprojResolveAssemblyReference.cache
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.Form1.resources
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.Properties.Resources.resources
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.csproj.GenerateResource.Cache
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.csprojResolveAssemblyReference.cache
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.Form1.resources
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.Properties.Resources.resources
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Release\SpeechRecognition.csproj.GenerateResource.Cache
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\Рабочее Голосовое управление AutoIt\bin\Release\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\Рабочее Голосовое управление AutoIt\bin\Release\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.csprojResolveAssemblyReference.cache
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.Form1.resources
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.Properties.Resources.resources
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.csproj.GenerateResource.Cache
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\Interop.AutoItX3Lib.dll
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.csproj.ResolveComReference.cache
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Release\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Release\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Release\Microsoft.Speech.dll
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Release\Interop.AutoItX3Lib.dll
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Release\SpeechRecognition.exe.manifest
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Release\SpeechRecognition.application
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.TrustInfo.xml
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.exe.manifest
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.application
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\Interop.AutoItX3Lib.dll
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.csproj.ResolveComReference.cache
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.exe
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.pdb
+E:\Мои game'ы\Голосовое управление\MVC\bin\Release\SpeechRecognition.exe.manifest
+E:\Мои game'ы\Голосовое управление\MVC\bin\Release\SpeechRecognition.application
+E:\Мои game'ы\Голосовое управление\MVC\bin\Release\SpeechRecognition.exe
+E:\Мои game'ы\Голосовое управление\MVC\bin\Release\SpeechRecognition.pdb
+E:\Мои game'ы\Голосовое управление\MVC\bin\Release\Microsoft.Speech.dll
+E:\Мои game'ы\Голосовое управление\MVC\bin\Release\Interop.AutoItX3Lib.dll
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.csprojResolveAssemblyReference.cache
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.Form1.resources
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.Properties.Resources.resources
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.csproj.GenerateResource.Cache
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.TrustInfo.xml
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.exe.manifest
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.application

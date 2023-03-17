@@ -1,0 +1,68 @@
+D:\Dropbox\SpeechRecognition\bin\Debug\SpeechRecognition.exe
+D:\Dropbox\SpeechRecognition\bin\Debug\SpeechRecognition.pdb
+D:\Dropbox\SpeechRecognition\obj\x86\Debug\SpeechRecognition.csprojResolveAssemblyReference.cache
+D:\Dropbox\SpeechRecognition\obj\x86\Debug\SpeechRecognition.Form1.resources
+D:\Dropbox\SpeechRecognition\obj\x86\Debug\SpeechRecognition.Properties.Resources.resources
+D:\Dropbox\SpeechRecognition\obj\x86\Debug\SpeechRecognition.csproj.GenerateResource.Cache
+D:\Dropbox\SpeechRecognition\obj\x86\Debug\SpeechRecognition.exe
+D:\Dropbox\SpeechRecognition\obj\x86\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Новая папка\obj\x86\Debug\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Новая папка\obj\x86\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Новая папка\bin\Debug\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Новая папка\bin\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Новая папка\obj\x86\Debug\SpeechRecognition.csprojResolveAssemblyReference.cache
+C:\Users\Jibor\Desktop\Новая папка\obj\x86\Debug\SpeechRecognition.Form1.resources
+C:\Users\Jibor\Desktop\Новая папка\obj\x86\Debug\SpeechRecognition.Properties.Resources.resources
+C:\Users\Jibor\Desktop\Новая папка\obj\x86\Debug\SpeechRecognition.csproj.GenerateResource.Cache
+C:\Users\Jibor\Desktop\Голосовое управление - копия\obj\x86\Debug\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Голосовое управление - копия\obj\x86\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Голосовое управление - копия\obj\x86\Debug\SpeechRecognition.csprojResolveAssemblyReference.cache
+C:\Users\Jibor\Desktop\Голосовое управление - копия\obj\x86\Debug\SpeechRecognition.Form1.resources
+C:\Users\Jibor\Desktop\Голосовое управление - копия\obj\x86\Debug\SpeechRecognition.Properties.Resources.resources
+C:\Users\Jibor\Desktop\Голосовое управление - копия\obj\x86\Debug\SpeechRecognition.csproj.GenerateResource.Cache
+C:\Users\Jibor\Desktop\Голосовое управление - копия\bin\Debug\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Голосовое управление - копия\bin\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Голосовое управление Post_SendMessage - копия\obj\x86\Debug\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Голосовое управление Post_SendMessage - копия\obj\x86\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Голосовое управление Post_SendMessage - копия\bin\Debug\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Голосовое управление Post_SendMessage - копия\bin\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Голосовое управление Post_SendMessage - копия\obj\x86\Debug\SpeechRecognition.csprojResolveAssemblyReference.cache
+C:\Users\Jibor\Desktop\Голосовое управление Post_SendMessage - копия\obj\x86\Debug\SpeechRecognition.Form1.resources
+C:\Users\Jibor\Desktop\Голосовое управление Post_SendMessage - копия\obj\x86\Debug\SpeechRecognition.Properties.Resources.resources
+C:\Users\Jibor\Desktop\Голосовое управление Post_SendMessage - копия\obj\x86\Debug\SpeechRecognition.csproj.GenerateResource.Cache
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Debug\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Голосовое управление\Рабочее Голосовое управление AutoIt\obj\x86\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\Interop.AutoItX3Lib.dll
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.csproj.ResolveComReference.cache
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Debug\SpeechRecognition.exe
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Debug\SpeechRecognition.pdb
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Debug\Microsoft.Speech.dll
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Debug\Interop.AutoItX3Lib.dll
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.csprojResolveAssemblyReference.cache
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.Form1.resources
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.Properties.Resources.resources
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.csproj.GenerateResource.Cache
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Debug\SpeechRecognition.exe.manifest
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\bin\Debug\SpeechRecognition.application
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.TrustInfo.xml
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.exe.manifest
+C:\Users\Jibor\Desktop\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.application
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\Interop.AutoItX3Lib.dll
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.csproj.ResolveComReference.cache
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.exe
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.pdb
+E:\Мои game'ы\Голосовое управление\MVC\bin\Debug\SpeechRecognition.exe.manifest
+E:\Мои game'ы\Голосовое управление\MVC\bin\Debug\SpeechRecognition.application
+E:\Мои game'ы\Голосовое управление\MVC\bin\Debug\SpeechRecognition.exe
+E:\Мои game'ы\Голосовое управление\MVC\bin\Debug\SpeechRecognition.pdb
+E:\Мои game'ы\Голосовое управление\MVC\bin\Debug\Microsoft.Speech.dll
+E:\Мои game'ы\Голосовое управление\MVC\bin\Debug\Interop.AutoItX3Lib.dll
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.csprojResolveAssemblyReference.cache
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.Form1.resources
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.Properties.Resources.resources
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.csproj.GenerateResource.Cache
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.TrustInfo.xml
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.exe.manifest
+E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.application
