@@ -28,12 +28,12 @@ namespace SpeechRecognition
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            controller.ChangeView(dataGridView1);
+            Controller.ChangeView(dataGridView1);
         }
 
         private void Save_Click(object sender, EventArgs e)
         {
-            controller.save(dataGridView1);
+            Controller.Save(dataGridView1);
         }
     }
 }

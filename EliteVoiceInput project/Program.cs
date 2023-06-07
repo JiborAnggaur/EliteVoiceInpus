@@ -14,19 +14,20 @@ using AutoItX3Lib;
 using System.IO;
 using System.Reflection;
 using System.Threading;
+using SpeechRecognition.Properties;
 
 namespace SpeechRecognition
 {
     public class ThreadHelper
     {
         public SpeechRecognizedEventArgs e;
-        private SpeechSynthesizer synth;
+        private SynthesizerAbstract synth;
         private string[][] settings;
         private int number_of_commands;
-        private AutoItX3Class au3;
+        private ClickerAbstract au3;
 
         public ThreadHelper (SpeechRecognizedEventArgs eInp,
-            SpeechSynthesizer synthInp, string[][] settingsInp, int number_of_commandsInp, AutoItX3Class au3Inp)
+            SynthesizerAbstract synthInp, string[][] settingsInp, int number_of_commandsInp, ClickerAbstract au3Inp)
             {
                 e = eInp;
                 synth = synthInp;
@@ -43,8 +44,8 @@ namespace SpeechRecognition
                 {
                     if (e.Result.Text == settings[0][i])
                     {
-                        au3.Send(settings[1][i]);
-                        synth.SpeakAsync(settings[2][i]);
+                        au3.Click(settings[1][i]);
+                        synth.Speak(settings[2][i]);
                         i = number_of_commands;
                     }
                 }
@@ -52,39 +53,194 @@ namespace SpeechRecognition
             }
         }
     }
-        public class recognitor
+
+    public abstract class RecognitorAbstract
     {
-        private SpeechSynthesizer synth;
+        protected SynthesizerAbstract Synth;
+        protected ClickerAbstract Clicker;
+
+        public void SetSynthesizer(SynthesizerAbstract Synth)
+        {
+            this.Synth = Synth;
+        }
+        public void SetClicker(ClickerAbstract Clicker)
+        {
+            this.Clicker = Clicker;
+        }
+        public abstract void RecognizeStart();
+        public abstract void SetCommandSetForRecognition(string[][] settings); //set commands
+    }
+    public class RecognitorMS:RecognitorAbstract
+    {
         private string[][] settings;
-        private SpeechRecognitionEngine sre;
-        private int number_of_commands;
-        private AutoItX3Class au3;
-        private System.Globalization.CultureInfo ci;
-
-
-        public recognitor (string[][] i_settings)
+        private readonly SpeechRecognitionEngine sre;
+        private readonly System.Globalization.CultureInfo ci;
+        void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            settings = new string[3][];
-            SetSettings(i_settings);
-            constructMain();
+            ThreadHelper ThreadRecognizedHelper = new ThreadHelper(e, this.Synth, settings, settings.GetLength(0), this.Clicker);
+            Thread ThreadRecognized = new Thread(new ThreadStart(ThreadRecognizedHelper.DoRecognitionActions));
+            ThreadRecognized.Start();
         }
-
-        public recognitor()
+        public RecognitorMS(string[][] settings)
         {
-            SetSettings(settings_utils.read_settings());
-            constructMain();
-        }
+            this.settings = settings;
+            ci = new System.Globalization.CultureInfo("ru-ru"); //create recogn engine
+            sre = new SpeechRecognitionEngine(ci);
 
-        public void recognize_start()
+            bool okcode;
+            okcode = false;
+            while (okcode == false)
+            {
+                try
+                {
+                    sre.SetInputToDefaultAudioDevice();
+                    okcode = true;
+                }
+                catch
+                {
+                    var result = MessageBox.Show("Input device is not connected. Please connect it and press 'Yes' or press 'No' for exit",
+                                   "Error",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+                    // If the no button was pressed ...
+                    if (result == DialogResult.No)
+                    {
+                        System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    }
+                }
+            }
+
+            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(SpeechRecognized); //event register
+            sre.LoadGrammar(GrammarForLoad(AddCommandsToChoices(settings)));
+
+        }
+        private Grammar GrammarForLoad(Choices commands_cho)
+        {
+            GrammarBuilder gb = new GrammarBuilder();   //Grammar of choices
+            gb.Culture = ci;
+            gb.Append(commands_cho);
+            Grammar g = new Grammar(gb);
+
+            return g;
+        }
+        private Choices AddCommandsToChoices(string[][] settings)
+        {
+            string[] commands = settings[0];
+            Choices commands_cho = new Choices(); //add commads to class MS recogn
+            commands_cho.Add(commands);
+
+            return commands_cho;
+        }
+        public override void RecognizeStart()
         {
             sre.RecognizeAsync(RecognizeMode.Multiple);
         }
-
-        void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        public override void SetCommandSetForRecognition(string[][] settings)
         {
-              ThreadHelper ThreadRecognizedHelper = new ThreadHelper(e, synth, settings, number_of_commands, au3);
-              Thread ThreadRecognized = new Thread(new ThreadStart(ThreadRecognizedHelper.DoRecognitionActions));
-              ThreadRecognized.Start();
+            sre.RequestRecognizerUpdate();
+            sre.UnloadAllGrammars();
+            sre.LoadGrammar(GrammarForLoad(AddCommandsToChoices(settings)));
+        }
+
+    }
+    public abstract class SynthesizerAbstract
+    {
+        public abstract void Speak(string promt);
+    }
+    public class SynthesizerMS : SynthesizerAbstract
+    {
+        private SpeechSynthesizer synth;
+
+        public SynthesizerMS()
+        {
+            synth = new SpeechSynthesizer();
+            bool okcode;
+            okcode = false;
+            System.Globalization.CultureInfo ci;
+            ci = new System.Globalization.CultureInfo("ru-ru"); //create recogn engine
+            foreach (InstalledVoice voice in synth.GetInstalledVoices(ci))
+            {
+                string VoiceName = voice.VoiceInfo.Name;
+                synth.SelectVoice(VoiceName);
+            }
+            // Configure the audio output. 
+            okcode = false;
+            while (okcode == false)
+            {
+                try
+                {
+                    synth.SetOutputToDefaultAudioDevice();
+                    okcode = true;
+                }
+                catch
+                {
+                    var result = MessageBox.Show("Output device is not connected. Please connect it and press 'Yes' or press 'No' for exit",
+                                   "Error",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+                    // If the no button was pressed ...
+                    if (result == DialogResult.No)
+                    {
+                        System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    }
+                }
+            }
+            // Set the volume of the SpeechSynthesizer's ouput.
+            synth.Volume = 100;
+        }
+        public override void Speak(string promt)
+        {
+            synth.SpeakAsync(promt);
+        }
+    }
+    public abstract class ClickerAbstract
+    {
+        public abstract void Click(string promt);
+    }
+    public class ClickerAutoIt:ClickerAbstract
+    {
+        private readonly AutoItX3Class au3;
+        public ClickerAutoIt()
+        {
+            au3 = new AutoItX3Class();
+            au3.AutoItSetOption("SendKeyDelay", 0);
+        }
+        public override void Click(string promt)
+        {
+            au3.Send(promt);
+        }
+    }
+
+    public class Model
+    {
+        private SynthesizerAbstract synth;
+        private string[][] settings;
+        private RecognitorAbstract sre;
+        private int number_of_commands;
+        private ClickerAbstract clicker;
+
+        public Model (string[][] i_settings)
+        {
+            settings = new string[3][];
+            SetSettings(i_settings);
+            ConstructMain();
+        }
+
+        public Model()
+        {
+            SetSettings(Settings_utils.read_settings());
+            ConstructMain();
+        }
+
+        public void RecognizeStart()
+        {
+            sre.RecognizeStart();
+        }
+        public void SetCommandSetForRecognition(string[][] settings)
+        {
+            sre.SetCommandSetForRecognition(settings);
         }
 
         public string[][] GetSettings()
@@ -121,102 +277,17 @@ namespace SpeechRecognition
             SetSettings(settings_new);
         }
 
-        public void ChangeGrammar()
+        private void ConstructMain()
         {
-            sre.RequestRecognizerUpdate();
-            sre.UnloadAllGrammars(); 
-            sre.LoadGrammar(GrammarForLoad(AddCommandsToChoices()));
-        }
-
-        private Choices AddCommandsToChoices()
-        {
-            string[] commands = settings[0];
-            Choices commands_cho = new Choices(); //add commads to class MS recogn
-            commands_cho.Add(commands);
-
-            return commands_cho;
-        }
-
-        private Grammar GrammarForLoad(Choices commands_cho)
-        {
-            GrammarBuilder gb = new GrammarBuilder();   //Grammar of choices
-            gb.Culture = ci;
-            gb.Append(commands_cho);
-            Grammar g = new Grammar(gb);
-
-            return g;
-        }
-
-        private void constructMain()
-        {
-            synth = new SpeechSynthesizer();    //create new voice synth
-
-            ci = new System.Globalization.CultureInfo("ru-ru"); //create recogn engine
-            sre = new SpeechRecognitionEngine(ci);
-            bool okcode;
-            okcode = false;
-            while ( okcode == false )
-            { 
-                try
-                {
-                    sre.SetInputToDefaultAudioDevice();
-                    okcode = true;
-                }
-                catch
-                {
-                    var result = MessageBox.Show("Input device is not connected. Please connect it and press 'Yes' or press 'No' for exit", 
-                                   "Error",
-                                 MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question);
-
-                    // If the no button was pressed ...
-                    if (result == DialogResult.No)
-                    {
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
-                    }
-                }
-            }
-
-            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized); //event register
-            sre.LoadGrammar(GrammarForLoad(AddCommandsToChoices()));
-
-            foreach (InstalledVoice voice in synth.GetInstalledVoices(ci))
-            {
-                string VoiceName = voice.VoiceInfo.Name;
-                synth.SelectVoice(VoiceName);
-            }
-            // Configure the audio output. 
-            okcode = false;
-            while (okcode == false)
-            {
-                try
-                {
-                    synth.SetOutputToDefaultAudioDevice();
-                    okcode = true;
-                }
-                catch
-                {
-                    var result = MessageBox.Show("Output device is not connected. Please connect it and press 'Yes' or press 'No' for exit",
-                                   "Error",
-                                 MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question);
-
-                    // If the no button was pressed ...
-                    if (result == DialogResult.No)
-                    {
-                        System.Diagnostics.Process.GetCurrentProcess().Kill();
-                    }
-                }
-            }
-            // Set the volume of the SpeechSynthesizer's ouput.
-            synth.Volume = 100;
-
-            au3 = new AutoItX3Class();
-            au3.AutoItSetOption("SendKeyDelay", 0);
+            synth = new SynthesizerMS();    //create new voice synth
+            clicker = new ClickerAutoIt();
+            sre = new RecognitorMS(settings);
+            sre.SetSynthesizer(synth);
+            sre.SetClicker(clicker);
         }
     } 
 
-    class settings_utils
+    class Settings_utils
     {
         static public string[][] read_settings()
         {
@@ -235,9 +306,9 @@ namespace SpeechRecognition
         }
     }
 
-    class controller
+    class Controller
     {
-        private static recognitor recognitor_process;
+        private static Model recognitor_process;
         private static Form1 MainForm;
         static public void ChangeView(DataGridView grid)
         {
@@ -252,15 +323,15 @@ namespace SpeechRecognition
         }
         public static void start()
         {
-            recognitor_process = new recognitor();
-            recognitor_process.recognize_start();
+            recognitor_process = new Model();
+            recognitor_process.RecognizeStart();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             MainForm = new Form1();
             Application.Run(MainForm);
         }
 
-        public static void save(DataGridView grid)
+        public static void Save(DataGridView grid)
         {
             string[][] settings = new string[3][];
             settings[0] = new string[grid.Rows.Count-1];
@@ -286,8 +357,8 @@ namespace SpeechRecognition
                 }
             }
             recognitor_process.SetSettings(settings);
-            recognitor_process.ChangeGrammar();
-            settings_utils.write_settings(settings);
+            recognitor_process.SetCommandSetForRecognition(settings);
+            Settings_utils.write_settings(settings);
         }
     }
 
@@ -299,7 +370,7 @@ namespace SpeechRecognition
         [STAThread]
         static void Main()
         {
-            controller.start();
+            Controller.start();
         }
     }
 }

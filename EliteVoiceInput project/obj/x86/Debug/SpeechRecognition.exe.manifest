@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4uwfDI7mfEcz8r7VdOdkv+qZeYA=</dsig:DigestValue>
+        <dsig:DigestValue>Rcx0lan5PJ1GN0MLwJfpW8BFU3E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpeechRecognition.exe" size="757696">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpeechRecognition.exe" size="757760">
       <assemblyIdentity name="SpeechRecognition" version="1.1.14.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+CrL7rVsHwodrr3QqVXkndGxgfE=</dsig:DigestValue>
+        <dsig:DigestValue>ya+xZmf3KyjJVNV+n8Kp69JjWIg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

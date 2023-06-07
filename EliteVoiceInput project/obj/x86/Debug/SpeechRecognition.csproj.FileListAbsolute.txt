@@ -66,3 +66,22 @@ E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\Spee
 E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.TrustInfo.xml
 E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.exe.manifest
 E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Debug\SpeechRecognition.application
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\SpeechRecognition.exe.manifest
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\SpeechRecognition.application
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\SpeechRecognition.exe
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\SpeechRecognition.pdb
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\Microsoft.Speech.dll
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\Interop.AutoItX3Lib.dll
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.AssemblyReference.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\Interop.AutoItX3Lib.dll
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.ResolveComReference.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.Form1.resources
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.Properties.Resources.resources
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.GenerateResource.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.CoreCompileInputs.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.TrustInfo.xml
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.exe.manifest
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.application
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.CopyComplete
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.exe
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.pdb
