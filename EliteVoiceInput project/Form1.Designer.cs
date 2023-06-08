@@ -1,6 +1,6 @@
 ﻿namespace SpeechRecognition
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Save = new System.Windows.Forms.Button();
             this.Command = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ButtonClick = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Response = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Save = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,9 +50,33 @@
             this.Response});
             this.dataGridView1.Location = new System.Drawing.Point(-1, 57);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(450, 348);
+            this.dataGridView1.Size = new System.Drawing.Size(611, 342);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // Command
+            // 
+            this.Command.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Command.HeaderText = "Command";
+            this.Command.MinimumWidth = 8;
+            this.Command.Name = "Command";
+            this.Command.Width = 118;
+            // 
+            // ButtonClick
+            // 
+            this.ButtonClick.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ButtonClick.HeaderText = "ButtonClick";
+            this.ButtonClick.MinimumWidth = 8;
+            this.ButtonClick.Name = "ButtonClick";
+            this.ButtonClick.Width = 126;
+            // 
+            // Response
+            // 
+            this.Response.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Response.HeaderText = "Response";
+            this.Response.MinimumWidth = 8;
+            this.Response.Name = "Response";
             // 
             // Save
             // 
@@ -64,36 +88,16 @@
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
-            // Command
-            // 
-            this.Command.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Command.HeaderText = "Command";
-            this.Command.Name = "Command";
-            this.Command.Width = 118;
-            // 
-            // ButtonClick
-            // 
-            this.ButtonClick.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ButtonClick.HeaderText = "ButtonClick";
-            this.ButtonClick.Name = "ButtonClick";
-            this.ButtonClick.Width = 126;
-            // 
-            // Response
-            // 
-            this.Response.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Response.HeaderText = "Response";
-            this.Response.Name = "Response";
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 404);
+            this.ClientSize = new System.Drawing.Size(610, 398);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EliteVoiceInput";
             this.Load += new System.EventHandler(this.Form1_Load);

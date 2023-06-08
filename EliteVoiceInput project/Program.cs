@@ -15,7 +15,9 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using SpeechRecognition.Properties;
-using SpeechRecognition;
+using System.Xml;
+using System.Diagnostics.Contracts;
+using System.Xml.Linq;
 
 namespace SpeechRecognition
 {
@@ -233,31 +235,19 @@ namespace SpeechRecognition
         private ClickerAbstract clicker;
         private Parameters[] parameters;
 
-        public Model(string[][] i_settings)
-        {
-            settings = new string[3][];
-            SetSettings(i_settings);
-            ConstructMain();
-        }
-
         public Model()
         {
-            SetSettings(Settings_utils.Read_settings());
+            SetSettings(Settings_utils.ReadSettings());
             ConstructMain();
         }
 
-        public void SetParameters()
+        public void SetParameters(Parameters[] i_parameters)
         {
-            parameters = new Parameters[3];
-            parameters[0] = new Parameters();
-            parameters[1] = new Parameters();
-            parameters[2] = new Parameters();
-            parameters[0].name = "Recogmitor";
-            parameters[0].value = "RecognitorMS";
-            parameters[1].name = "Synthesizer";
-            parameters[1].value = "SynthesizerMS";
-            parameters[2].name = "Clicker";
-            parameters[2].value = "ClickerAutoIt";
+            parameters = i_parameters;
+        }
+        public  Parameters[] GetParameters()
+        {
+            return parameters;
         }
 
         public void RecognizeStart()
@@ -327,7 +317,7 @@ namespace SpeechRecognition
 
         private void ConstructMain()
         {
-            SetParameters();
+            SetParameters(Settings_utils.ReadParameters());
             SetRecognitor();
             SetSynthesizer();
             SetClicker();
@@ -339,14 +329,15 @@ namespace SpeechRecognition
         {
             SetSettings(settings);
             SetCommandSetForRecognition(settings);
-            Settings_utils.Write_settings(settings);
+            Settings_utils.WriteSettings(settings);
+            Settings_utils.WriteParameters(parameters);
             synth.GenerateAufioFiles(settings[2]);
         }
     } 
 
     class Settings_utils
     {
-        static public string[][] Read_settings()
+        static public string[][] ReadSettingsOld()
         {
             string[][] i_settings = new string[3][];
             i_settings = File.ReadAllLines(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.txt")
@@ -354,19 +345,173 @@ namespace SpeechRecognition
                    .ToArray();
             return i_settings;
         }
+        static public string[][] ReadSettings()
+        {
+            string[][] i_settings = new string[3][];
+            List<string> commands = new List<string>();
+            List<string> buttons = new List<string>();
+            List<string> responses = new List<string>();
 
-        static public void Write_settings(string[][] i_settings)
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.xml");
+            XmlElement xRoot = xDoc.DocumentElement;
+            if (xRoot != null)
+            {
+                // обход всех узлов в корневом элементе
+                foreach (XmlElement xnode in xRoot)
+                {
+
+                    if (xnode.Name == "settings")
+                    {
+                        foreach (XmlNode setting in xnode.ChildNodes)
+                        {
+                            foreach (XmlNode childnode in setting.ChildNodes)
+                            {
+                                if (childnode.Name == "command")
+                                {
+                                    commands.Add(childnode.InnerText);
+                                }
+                                if (childnode.Name == "button")
+                                {
+                                    buttons.Add(childnode.InnerText);
+                                }
+                                if (childnode.Name == "response")
+                                {
+                                    responses.Add(childnode.InnerText);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            i_settings[0] = commands.ToArray();
+            i_settings[1] = buttons.ToArray();
+            i_settings[2] = responses.ToArray();
+            return i_settings;
+        }
+
+        static public void WriteSettingsOld(string[][] i_settings)
         {
             File.WriteAllLines(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.txt", i_settings
             //   .ToJagged()
             .Select(line => String.Join("\t", line)));
+        }
+        static public void WriteSettings(string[][] i_settings)
+        {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.xml");
+            XmlElement xRoot = xDoc.DocumentElement;
+            foreach (XmlNode node in xRoot.ChildNodes)
+            {
+                if (node.Name == "settings")
+                {
+                    xRoot.RemoveChild(node);
+                }
+            }
+
+            XmlElement settingsElem = xDoc.CreateElement("settings");
+
+            for (int i = 0; i < i_settings[0].GetLength(0); i++)
+            {
+                XmlElement settingElem = xDoc.CreateElement("setting");
+
+                XmlElement commandElem = xDoc.CreateElement("command");
+                XmlElement buttonElem = xDoc.CreateElement("button");
+                XmlElement responseElem = xDoc.CreateElement("response");
+
+                XmlText commandText = xDoc.CreateTextNode(i_settings[0][i]);
+                XmlText buttonText = xDoc.CreateTextNode(i_settings[1][i]);
+                XmlText responseText = xDoc.CreateTextNode(i_settings[2][i]);
+
+                commandElem.AppendChild(commandText);
+                buttonElem.AppendChild(buttonText);
+                responseElem.AppendChild(responseText);
+
+                settingElem.AppendChild(commandElem);
+                settingElem.AppendChild(buttonElem);
+                settingElem.AppendChild(responseElem);
+
+                settingsElem.AppendChild(settingElem);
+            }
+            xRoot.AppendChild(settingsElem);
+
+            xDoc.Save(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.xml");
+        }
+        static public Parameters[] ReadParameters()
+        {
+            List<Parameters> parameters = new List<Parameters>();
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.xml");
+            XmlElement xRoot = xDoc.DocumentElement;
+            if (xRoot != null)
+            {
+                // обход всех узлов в корневом элементе
+                foreach (XmlElement xnode in xRoot)
+                {
+                    if (xnode.Name == "parameters")
+                    {
+                        foreach (XmlElement param in xnode)
+                        {
+                            Parameters parameter = new Parameters();
+                            XmlNode attr = param.Attributes.GetNamedItem("name");
+                            if (attr != null)
+                            {
+                                parameter.name = attr.InnerText;
+                            }
+
+                            attr = param.Attributes.GetNamedItem("value");
+                            if (attr != null)
+                            {
+                                parameter.value = attr.InnerText;
+                            }
+                            parameters.Add(parameter);
+                        }
+                    }
+                }
+            }
+            return parameters.ToArray();
+        }
+        static public void WriteParameters(Parameters[] parameters)
+        {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.xml");
+            XmlElement xRoot = xDoc.DocumentElement;
+            foreach (XmlNode node in xRoot.ChildNodes)
+            {
+                if (node.Name == "parameters")
+                {
+                    xRoot.RemoveChild(node);
+                }
+            }
+
+            XmlElement parametersElem = xDoc.CreateElement("parameters");
+
+            for (int i = 0; i < parameters.GetLength(0); i++)
+            {
+                XmlElement parameterElem = xDoc.CreateElement("parameter");
+                XmlAttribute nameAttr = xDoc.CreateAttribute("name");
+                XmlText nameText = xDoc.CreateTextNode(parameters[i].name);
+                nameAttr.AppendChild(nameText);
+                parameterElem.Attributes.Append(nameAttr);
+                nameAttr = xDoc.CreateAttribute("value");
+                nameText = xDoc.CreateTextNode(parameters[i].value);
+                nameAttr.AppendChild(nameText);
+                parameterElem.Attributes.Append(nameAttr);
+
+                parametersElem.AppendChild(parameterElem);
+            }
+            xRoot.AppendChild(parametersElem);
+
+            xDoc.Save(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.xml");
+
         }
     }
 
     class Controller
     {
         private static Model recognitor_process;
-        private static Form1 MainForm;
+        private static MainForm MainForm;
         static public void ChangeView(DataGridView grid)
         {
             grid.Rows.Clear();
@@ -384,7 +529,7 @@ namespace SpeechRecognition
             recognitor_process.RecognizeStart();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainForm = new Form1();
+            MainForm = new MainForm();
             Application.Run(MainForm);
         }
 

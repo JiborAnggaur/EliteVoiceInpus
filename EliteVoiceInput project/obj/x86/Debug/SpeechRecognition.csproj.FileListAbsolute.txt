@@ -75,7 +75,6 @@ E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.AssemblyReference.cache
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\Interop.AutoItX3Lib.dll
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.ResolveComReference.cache
-E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.Form1.resources
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.Properties.Resources.resources
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.GenerateResource.cache
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.CoreCompileInputs.cache
@@ -87,3 +86,4 @@ E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\De
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.pdb
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\SpeechRecognition.exe.config
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.SuggestedBindingRedirects.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.MainForm.resources

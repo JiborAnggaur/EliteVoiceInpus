@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <settings>
+    <setting>
+      <command>прыжок</command>
+      <button>{SPACE}</button>
+      <response>прыгаю</response>
+    </setting>
+    <setting>
+      <command>хот</command>
+      <button>c</button>
+      <response>сбрасываю тепло тоби у дупу чёрт ебучий</response>
+    </setting>
+    <setting>
+      <command>баланс</command>
+      <button>{F4}</button>
+      <response>устанавливаю баланс</response>
+    </setting>
+    <setting>
+      <command>энджинс</command>
+      <button>{F1}{F1}{F1}{F1}{F1}{F1}</button>
+      <response>энергия на двигатели</response>
+    </setting>
+    <setting>
+      <command>шилдс</command>
+      <button>{F2}{F2}{F2}{F2}{F2}{F2}</button>
+      <response>энергия на щиты</response>
+    </setting>
+    <setting>
+      <command>пушки</command>
+      <button>{F3}{F3}{F3}{F3}{F3}{F3}</button>
+      <response>энергия на орудия</response>
+    </setting>
+  </settings>
+  <parameters>
+    <parameter name="Recognitor" value="RecognitorMS" />
+    <parameter name="Synthesizer" value="SynthesizerMS" />
+    <parameter name="Clicker" value="ClickerAutoIt" />
+  </parameters>
+</root>
