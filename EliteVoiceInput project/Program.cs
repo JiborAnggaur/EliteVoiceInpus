@@ -293,6 +293,13 @@ namespace SpeechRecognition
             clicker = (ClickerAbstract)Activator.CreateInstance(type, new object[] { });
         }
 
+        public void SetSynthesizerParam(string synthesizer)
+        {
+            parameters[1].value = synthesizer;
+            Settings_utils.WriteParameters(parameters);
+            SetSynthesizer();
+        }
+
         private void AddSetting(string command, string button, string response)
         {
             string[] commands = new string[number_of_commands+1];
@@ -330,7 +337,6 @@ namespace SpeechRecognition
             SetSettings(settings);
             SetCommandSetForRecognition(settings);
             Settings_utils.WriteSettings(settings);
-            Settings_utils.WriteParameters(parameters);
             synth.GenerateAufioFiles(settings[2]);
         }
     } 
@@ -559,6 +565,15 @@ namespace SpeechRecognition
                 }
             }
             recognitor_process.SaveSettings(settings);
+        }
+
+        public static void ChangeParam(string synthesizer)
+        {
+            recognitor_process.SetSynthesizerParam(synthesizer);
+        }
+        static public Parameters[] GetParameters()
+        {
+            return recognitor_process.GetParameters();
         }
     }
 

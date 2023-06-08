@@ -35,5 +35,11 @@ namespace SpeechRecognition
         {
             Controller.Save(dataGridView1);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ParametersWindow paramWindow = new ParametersWindow(Controller.GetParameters());
+            paramWindow.ShowDialog();
+        }
     }
 }

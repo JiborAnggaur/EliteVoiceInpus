@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpeechRecognition.exe" size="761344">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpeechRecognition.exe" size="763392">
       <assemblyIdentity name="SpeechRecognition" version="1.1.14.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cdjIjRsqRMEPe8lWXNpq4VObN9IZ7fLpJ6A/yf0/Kmg=</dsig:DigestValue>
+        <dsig:DigestValue>/uyor2g037wi4y/pXoO9ABBMOtxpNsg47dxqllDOGB0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
