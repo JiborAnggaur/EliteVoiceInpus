@@ -15,9 +15,15 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using SpeechRecognition.Properties;
+using SpeechRecognition;
 
 namespace SpeechRecognition
 {
+    public class Parameters
+    {
+        public string name;
+        public string value;
+    }
     public class ThreadHelper
     {
         public SpeechRecognizedEventArgs e;
@@ -147,6 +153,7 @@ namespace SpeechRecognition
     public abstract class SynthesizerAbstract
     {
         public abstract void Speak(string promt);
+        public abstract void GenerateAufioFiles(string[] toGenerate);
     }
     public class SynthesizerMS : SynthesizerAbstract
     {
@@ -194,6 +201,10 @@ namespace SpeechRecognition
         {
             synth.SpeakAsync(promt);
         }
+        public override void GenerateAufioFiles(string[] toGenerate)
+        {
+
+        }
     }
     public abstract class ClickerAbstract
     {
@@ -220,8 +231,9 @@ namespace SpeechRecognition
         private RecognitorAbstract sre;
         private int number_of_commands;
         private ClickerAbstract clicker;
+        private Parameters[] parameters;
 
-        public Model (string[][] i_settings)
+        public Model(string[][] i_settings)
         {
             settings = new string[3][];
             SetSettings(i_settings);
@@ -230,8 +242,22 @@ namespace SpeechRecognition
 
         public Model()
         {
-            SetSettings(Settings_utils.read_settings());
+            SetSettings(Settings_utils.Read_settings());
             ConstructMain();
+        }
+
+        public void SetParameters()
+        {
+            parameters = new Parameters[3];
+            parameters[0] = new Parameters();
+            parameters[1] = new Parameters();
+            parameters[2] = new Parameters();
+            parameters[0].name = "Recogmitor";
+            parameters[0].value = "RecognitorMS";
+            parameters[1].name = "Synthesizer";
+            parameters[1].value = "SynthesizerMS";
+            parameters[2].name = "Clicker";
+            parameters[2].value = "ClickerAutoIt";
         }
 
         public void RecognizeStart()
@@ -255,7 +281,29 @@ namespace SpeechRecognition
             number_of_commands = commands.GetLength(0);
         }
 
-        public void AddSetting(string command, string button, string response)
+        private void SetRecognitor()
+        {
+            string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            //sre = (RecognitorAbstract)Activator.CreateInstance(AssemblyName, AssemblyName + "." + parameters[0].value)).Unwrap();
+            Type type = Type.GetType(AssemblyName + "." + parameters[0].value);
+            sre = (RecognitorAbstract)Activator.CreateInstance(type, new object[] { settings });
+        }
+        private void SetSynthesizer()
+        {
+            string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            //sre = (RecognitorAbstract)Activator.CreateInstance(AssemblyName, AssemblyName + "." + parameters[0].value)).Unwrap();
+            Type type = Type.GetType(AssemblyName + "." + parameters[1].value);
+            synth = (SynthesizerAbstract)Activator.CreateInstance(type, new object[] { });
+        }
+        private void SetClicker()
+        {
+            string AssemblyName = Assembly.GetExecutingAssembly().GetName().Name;
+            //sre = (RecognitorAbstract)Activator.CreateInstance(AssemblyName, AssemblyName + "." + parameters[0].value)).Unwrap();
+            Type type = Type.GetType(AssemblyName + "." + parameters[2].value);
+            clicker = (ClickerAbstract)Activator.CreateInstance(type, new object[] { });
+        }
+
+        private void AddSetting(string command, string button, string response)
         {
             string[] commands = new string[number_of_commands+1];
             string[] buttons = new string[number_of_commands+1];
@@ -279,17 +327,26 @@ namespace SpeechRecognition
 
         private void ConstructMain()
         {
-            synth = new SynthesizerMS();    //create new voice synth
-            clicker = new ClickerAutoIt();
-            sre = new RecognitorMS(settings);
+            SetParameters();
+            SetRecognitor();
+            SetSynthesizer();
+            SetClicker();
             sre.SetSynthesizer(synth);
             sre.SetClicker(clicker);
+        }
+
+        public void SaveSettings(string[][] settings)
+        {
+            SetSettings(settings);
+            SetCommandSetForRecognition(settings);
+            Settings_utils.Write_settings(settings);
+            synth.GenerateAufioFiles(settings[2]);
         }
     } 
 
     class Settings_utils
     {
-        static public string[][] read_settings()
+        static public string[][] Read_settings()
         {
             string[][] i_settings = new string[3][];
             i_settings = File.ReadAllLines(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.txt")
@@ -298,7 +355,7 @@ namespace SpeechRecognition
             return i_settings;
         }
 
-        static public void write_settings(string[][] i_settings)
+        static public void Write_settings(string[][] i_settings)
         {
             File.WriteAllLines(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.txt", i_settings
             //   .ToJagged()
@@ -321,7 +378,7 @@ namespace SpeechRecognition
                 grid.Rows.Add(row);
             }
         }
-        public static void start()
+        public static void Start()
         {
             recognitor_process = new Model();
             recognitor_process.RecognizeStart();
@@ -356,9 +413,7 @@ namespace SpeechRecognition
                     }
                 }
             }
-            recognitor_process.SetSettings(settings);
-            recognitor_process.SetCommandSetForRecognition(settings);
-            Settings_utils.write_settings(settings);
+            recognitor_process.SaveSettings(settings);
         }
     }
 
@@ -370,7 +425,7 @@ namespace SpeechRecognition
         [STAThread]
         static void Main()
         {
-            Controller.start();
+            Controller.Start();
         }
     }
 }

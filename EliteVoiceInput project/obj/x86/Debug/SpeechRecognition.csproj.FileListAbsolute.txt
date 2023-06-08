@@ -85,3 +85,5 @@ E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\De
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.CopyComplete
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.exe
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.pdb
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\SpeechRecognition.exe.config
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.SuggestedBindingRedirects.cache
