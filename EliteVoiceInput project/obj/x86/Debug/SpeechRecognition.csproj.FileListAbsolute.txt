@@ -87,3 +87,4 @@ E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\De
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Debug\SpeechRecognition.exe.config
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.csproj.SuggestedBindingRedirects.cache
 E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.MainForm.resources
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Debug\SpeechRecognition.ParametersWindow.resources

@@ -48,3 +48,25 @@ E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\Sp
 E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.TrustInfo.xml
 E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.exe.manifest
 E:\Мои game'ы\Голосовое управление\MVC\obj\x86\Release\SpeechRecognition.application
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Release\SpeechRecognition.exe.config
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Release\SpeechRecognition.exe.manifest
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Release\SpeechRecognition.application
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Release\SpeechRecognition.exe
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Release\SpeechRecognition.pdb
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Release\Microsoft.Speech.dll
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\bin\Release\Interop.AutoItX3Lib.dll
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.csproj.AssemblyReference.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.csproj.SuggestedBindingRedirects.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\Interop.AutoItX3Lib.dll
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.csproj.ResolveComReference.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.MainForm.resources
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.ParametersWindow.resources
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.Properties.Resources.resources
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.csproj.GenerateResource.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.csproj.CoreCompileInputs.cache
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.TrustInfo.xml
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.exe.manifest
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.application
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.csproj.CopyComplete
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.exe
+E:\ProjectsVS\EliteVoiceInput\EliteVoiceInput\EliteVoiceInput project\obj\x86\Release\SpeechRecognition.pdb

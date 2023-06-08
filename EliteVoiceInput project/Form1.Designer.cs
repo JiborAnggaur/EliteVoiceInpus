@@ -34,6 +34,7 @@
             this.ButtonClick = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Response = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Save = new System.Windows.Forms.Button();
+            this.Parameters = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,11 +89,23 @@
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
+            // Parameters
+            // 
+            this.Parameters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Parameters.Location = new System.Drawing.Point(465, 12);
+            this.Parameters.Name = "Parameters";
+            this.Parameters.Size = new System.Drawing.Size(133, 39);
+            this.Parameters.TabIndex = 7;
+            this.Parameters.Text = "Parameters";
+            this.Parameters.UseVisualStyleBackColor = true;
+            this.Parameters.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 398);
+            this.Controls.Add(this.Parameters);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -113,6 +126,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Command;
         private System.Windows.Forms.DataGridViewTextBoxColumn ButtonClick;
         private System.Windows.Forms.DataGridViewTextBoxColumn Response;
+        private System.Windows.Forms.Button Parameters;
     }
 }
 

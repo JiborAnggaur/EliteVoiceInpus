@@ -18,6 +18,7 @@ using SpeechRecognition.Properties;
 using System.Xml;
 using System.Diagnostics.Contracts;
 using System.Xml.Linq;
+using System.Runtime.Remoting.Channels;
 
 namespace SpeechRecognition
 {
@@ -50,7 +51,7 @@ namespace SpeechRecognition
             {
                 for (int i = 0; i < number_of_commands; i++)
                 {
-                    if (e.Result.Text == settings[0][i])
+                    if (e.Result.Text == settings[0][i] )
                     {
                         au3.Click(settings[1][i]);
                         synth.Speak(settings[2][i]);
@@ -208,6 +209,46 @@ namespace SpeechRecognition
 
         }
     }
+    public class SynthesizerSilero : SynthesizerAbstract
+    {
+        //private string[] responses;
+        public SynthesizerSilero()
+        {
+            //string[][] settings = Settings_utils.ReadSettings();
+            //responses = settings[2];
+        }
+        public override void Speak(string promt)
+        {
+            //int filename = Array.IndexOf(responses, promt);
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Scripts\" + promt + ".wav");
+            if (player == null)
+            {
+                player.Play();
+            }
+        }
+        public override void GenerateAufioFiles(string[] toGenerate)
+        {
+            //int i = 0;
+            foreach ( string promt in toGenerate )
+            {
+                Process process = new Process();
+                process.StartInfo.FileName = "cmd.exe";
+                process.StartInfo.CreateNoWindow = true;
+                process.StartInfo.RedirectStandardInput = true;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.UseShellExecute = false;
+                process.Start();
+                process.StandardInput.WriteLine("cd " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\SpeechRecognitionEnv\Scripts");
+                process.StandardInput.WriteLine("activate.bat");
+                //process.StandardInput.WriteLine("activate virtualenvName");
+                process.StandardInput.WriteLine("cd " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Scripts");
+                process.StandardInput.WriteLine("python hello.py \"  " + promt + "  \" \"" + promt + "\"");
+                process.StandardInput.Flush();
+                process.StandardInput.Close();
+                //i++;
+            }
+        }
+    }
     public abstract class ClickerAbstract
     {
         public abstract void Click(string promt);
@@ -293,6 +334,15 @@ namespace SpeechRecognition
             clicker = (ClickerAbstract)Activator.CreateInstance(type, new object[] { });
         }
 
+        public void SetSynthesizerParam(string synthesizer)
+        {
+            parameters[1].value = synthesizer;
+            Settings_utils.WriteParameters(parameters);
+            SetSynthesizer();
+            synth.GenerateAufioFiles(settings[2]);
+            sre.SetSynthesizer(synth);
+        }
+
         private void AddSetting(string command, string button, string response)
         {
             string[] commands = new string[number_of_commands+1];
@@ -330,7 +380,6 @@ namespace SpeechRecognition
             SetSettings(settings);
             SetCommandSetForRecognition(settings);
             Settings_utils.WriteSettings(settings);
-            Settings_utils.WriteParameters(parameters);
             synth.GenerateAufioFiles(settings[2]);
         }
     } 
@@ -506,6 +555,26 @@ namespace SpeechRecognition
             xDoc.Save(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\settings.xml");
 
         }
+
+        static public string ConvertEncoding(string promt)
+        {
+            // Create two different encodings.
+            Encoding batch = Encoding.GetEncoding("cp866");
+            Encoding dflt = Encoding.Default;
+
+            // Convert the string into a byte array.
+            byte[] dfltBytes = dflt.GetBytes(promt);
+
+            // Perform the conversion from one encoding to the other.
+            byte[] batchBytes = Encoding.Convert(dflt, batch, dfltBytes);
+
+            // Convert the new byte[] into a char[] and then into a string.
+            char[] batchChars = new char[batch.GetCharCount(batchBytes, 0, batchBytes.Length)];
+            batch.GetChars(batchBytes, 0, batchBytes.Length, batchChars, 0);
+            string batchString = new string(batchChars);
+
+            return batchString;
+        }
     }
 
     class Controller
@@ -559,6 +628,15 @@ namespace SpeechRecognition
                 }
             }
             recognitor_process.SaveSettings(settings);
+        }
+
+        public static void ChangeParam(string synthesizer)
+        {
+            recognitor_process.SetSynthesizerParam(synthesizer);
+        }
+        static public Parameters[] GetParameters()
+        {
+            return recognitor_process.GetParameters();
         }
     }
 
