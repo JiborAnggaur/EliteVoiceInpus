@@ -15,10 +15,11 @@ namespace SpeechRecognition
 {
     public partial class MainForm : Form
     {
-
-        public MainForm()
+        private Controller controller;
+        public MainForm(Controller controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -28,17 +29,17 @@ namespace SpeechRecognition
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            Controller.ChangeView(dataGridView1);
+            controller.ChangeView(dataGridView1);
         }
 
         private void Save_Click(object sender, EventArgs e)
         {
-            Controller.Save(dataGridView1);
+            controller.Save(dataGridView1);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ParametersWindow paramWindow = new ParametersWindow(Controller.GetParameters());
+            ParametersWindow paramWindow = new ParametersWindow(controller.GetParameters(), controller);
             paramWindow.ShowDialog();
         }
     }

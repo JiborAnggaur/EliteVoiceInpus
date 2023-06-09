@@ -295,7 +295,7 @@ namespace SpeechRecognition
         {
             sre.RecognizeStart();
         }
-        public void SetCommandSetForRecognition(string[][] settings)
+        private void SetCommandSetForRecognition(string[][] settings)
         {
             sre.SetCommandSetForRecognition(settings);
         }
@@ -305,7 +305,7 @@ namespace SpeechRecognition
             return settings;
         }
 
-        public void SetSettings(string[][] i_settings)
+        private void SetSettings(string[][] i_settings)
         {
             settings = i_settings;
             string[] commands = i_settings[0];
@@ -577,11 +577,11 @@ namespace SpeechRecognition
         }
     }
 
-    class Controller
+    public class Controller
     {
-        private static Model recognitor_process;
-        private static MainForm MainForm;
-        static public void ChangeView(DataGridView grid)
+        private Model recognitor_process;
+        private MainForm MainForm;
+        public void ChangeView(DataGridView grid)
         {
             grid.Rows.Clear();
             string[][] settings = recognitor_process.GetSettings();
@@ -592,17 +592,17 @@ namespace SpeechRecognition
                 grid.Rows.Add(row);
             }
         }
-        public static void Start()
+        public void Start()
         {
             recognitor_process = new Model();
             recognitor_process.RecognizeStart();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainForm = new MainForm();
+            MainForm = new MainForm(this);
             Application.Run(MainForm);
         }
 
-        public static void Save(DataGridView grid)
+        public void Save(DataGridView grid)
         {
             string[][] settings = new string[3][];
             settings[0] = new string[grid.Rows.Count-1];
@@ -630,11 +630,11 @@ namespace SpeechRecognition
             recognitor_process.SaveSettings(settings);
         }
 
-        public static void ChangeParam(string synthesizer)
+        public void ChangeParam(string synthesizer)
         {
             recognitor_process.SetSynthesizerParam(synthesizer);
         }
-        static public Parameters[] GetParameters()
+        public Parameters[] GetParameters()
         {
             return recognitor_process.GetParameters();
         }
@@ -648,7 +648,8 @@ namespace SpeechRecognition
         [STAThread]
         static void Main()
         {
-            Controller.Start();
+            Controller controller = new Controller();
+            controller.Start();
         }
     }
 }

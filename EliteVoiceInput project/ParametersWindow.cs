@@ -13,7 +13,8 @@ namespace SpeechRecognition
     public partial class ParametersWindow : Form
     {
         private string synthesizer;
-        public ParametersWindow(Parameters[] parameters)
+        private Controller controller;
+        public ParametersWindow(Parameters[] parameters, Controller controller)
         {
             InitializeComponent();
             synthesizer = parameters[1].value;
@@ -33,11 +34,12 @@ namespace SpeechRecognition
             {
                 SynthesizerSileroOpt.Checked = false;
             }
+            this.controller = controller;
         }
 
         private void OK_Click(object sender, EventArgs e)
         {
-            Controller.ChangeParam(synthesizer);
+            controller.ChangeParam(synthesizer);
             this.Close();
         }
 
