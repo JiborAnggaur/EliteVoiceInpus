@@ -220,7 +220,7 @@ namespace SpeechRecognition
         public override void Speak(string promt)
         {
             //int filename = Array.IndexOf(responses, promt);
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Scripts\" + promt + ".wav");
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\SileroTTS" + promt + ".wav");
             if (player == null)
             {
                 player.Play();
@@ -241,8 +241,8 @@ namespace SpeechRecognition
                 process.StandardInput.WriteLine("cd " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\SpeechRecognitionEnv\Scripts");
                 process.StandardInput.WriteLine("activate.bat");
                 //process.StandardInput.WriteLine("activate virtualenvName");
-                process.StandardInput.WriteLine("cd " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Scripts");
-                process.StandardInput.WriteLine("python hello.py \"  " + promt + "  \" \"" + promt + "\"");
+                process.StandardInput.WriteLine("cd " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\SileroTTS");
+                process.StandardInput.WriteLine("python SileroTTS.py \"  " + promt + "  \" \"" + promt + "\"");
                 process.StandardInput.Flush();
                 process.StandardInput.Close();
                 //i++;
