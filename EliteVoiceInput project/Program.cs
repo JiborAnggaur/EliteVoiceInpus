@@ -231,6 +231,21 @@ namespace SpeechRecognition
             //int i = 0;
             foreach ( string promt in toGenerate )
             {
+                //delete old
+                string location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+                DirectoryInfo di = new DirectoryInfo(location + @"\SileroTTS");
+                FileInfo[] files = di.GetFiles("*.wav")
+                                     .Where(p => p.Extension == ".wav").ToArray();
+                foreach (FileInfo file in files)
+                    try
+                    {
+                        file.Attributes = FileAttributes.Normal;
+                        File.Delete(file.FullName);
+                    }
+                    catch { }
+
+                //create new
                 Process process = new Process();
                 process.StartInfo.FileName = "cmd.exe";
                 process.StartInfo.CreateNoWindow = true;
@@ -238,11 +253,12 @@ namespace SpeechRecognition
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.UseShellExecute = false;
                 process.Start();
-                process.StandardInput.WriteLine("cd " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\SpeechRecognitionEnv\Scripts");
+                //process.StandardInput.WriteLine(location.Substring(0, 2));
+                process.StandardInput.WriteLine("cd " + location + @"\SpeechRecognitionEnv\Scripts");
                 process.StandardInput.WriteLine("activate.bat");
                 //process.StandardInput.WriteLine("activate virtualenvName");
-                process.StandardInput.WriteLine("cd " + Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\SileroTTS");
-                process.StandardInput.WriteLine("python SileroTTS.py \"  " + promt + "  \" \"" + promt + "\"");
+                process.StandardInput.WriteLine("cd " + location + @"\SileroTTS");
+                process.StandardInput.WriteLine("python SileroTTS.py \"  " + promt + ".  \" \"" + promt + "\"");
                 process.StandardInput.Flush();
                 process.StandardInput.Close();
                 //i++;

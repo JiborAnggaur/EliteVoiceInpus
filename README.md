@@ -1,4 +1,4 @@
-# EliteVoiceInpus
+# EliteVoiceInput
 Voice Input for PC forrussian language
 
 Prerequisites
